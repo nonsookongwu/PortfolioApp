@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 
 void main() {
   runApp(MyPortfolioApp());
@@ -37,25 +38,37 @@ class MyPortfolioApp extends StatelessWidget {
                   ),
                 ),
               ),
-              Myimage(),
               Container(
-                height: 200,
+                  child: FlatButton(
+                onPressed: () {},
+                child: Text(
+                  "Download Resume",
+                  style: TextStyle(color: Colors.white),
+                ),
+                color: Colors.deepPurpleAccent,
+              )),
+              Image(
+                  image: AssetImage(
+                "images/Untitled-1.png",
+              )),
+              Container(
+                height: 100,
                 width: 400,
                 alignment: Alignment.topCenter,
-               // margin: EdgeInsets.fromLTRB(0, 0, 0, 0),
+                // margin: EdgeInsets.fromLTRB(0, 0, 0, 0),
                 decoration: BoxDecoration(
                   color: Colors.white,
                 ),
-                  child: Text(
-                    "I am Okongwu Chukwunonso, a flutter developer.",
-                    textDirection: TextDirection.ltr,
-                    style: TextStyle(
-                      color: Colors.deepPurple,
-                      fontSize: 15,
-                      fontWeight: FontWeight.normal,
-                    ),
+                child: Text(
+                  "I am Okongwu Chukwunonso, a flutter enthusiast and developer.",
+                  textDirection: TextDirection.ltr,
+                  style: TextStyle(
+                    color: Colors.deepPurple,
+                    fontSize: 15,
+                    fontWeight: FontWeight.normal,
                   ),
                 ),
+              ),
               Expanded(
                 child: Container(
                   height: 350,
@@ -66,16 +79,21 @@ class MyPortfolioApp extends StatelessWidget {
                     color: Colors.deepPurple,
                   ),
                   child: Text(
-                    "Things that I am good at",
+                    "Skills",
                     textDirection: TextDirection.ltr,
                     style: TextStyle(
                       color: Colors.white,
                       fontSize: 15,
-                      fontWeight: FontWeight.normal,
+                      fontWeight: FontWeight.bold,
                     ),
                   ),
                 ),
               ),
+              Row(
+                children: [
+                  //Image(image: AssetImage("images/Untitled-1.png"))
+                ],
+              )
             ],
           ),
         ),
@@ -84,13 +102,18 @@ class MyPortfolioApp extends StatelessWidget {
   }
 }
 
-
 class Myimage extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     AssetImage assetImage = AssetImage("images/Untitled-1.png");
-      Image image = Image(image: assetImage, width: 250, height: 250,);
-      return Container(child: image,);
-    }
+    Image image = Image(
+      image: assetImage,
+      width: 250,
+      height: 250,
+    );
+    return Container(
+      child: image,
+    );
   }
+}
