@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/painting.dart';
 import 'package:flutter/widgets.dart';
 
 void main() {
@@ -24,7 +25,7 @@ class MyPortfolioApp extends StatelessWidget {
                 height: 100,
                 width: 400,
                 alignment: Alignment.center,
-                margin: EdgeInsets.fromLTRB(0, 5, 0, 0),
+                //margin: EdgeInsets.fromLTRB(0, 5, 0, 0),
                 decoration: BoxDecoration(
                   color: Colors.deepPurple,
                 ),
@@ -34,7 +35,7 @@ class MyPortfolioApp extends StatelessWidget {
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: 30,
-                    fontWeight: FontWeight.bold,
+                    fontWeight: FontWeight.normal,
                   ),
                 ),
               ),
@@ -47,10 +48,7 @@ class MyPortfolioApp extends StatelessWidget {
                 ),
                 color: Colors.deepPurpleAccent,
               )),
-              Image(
-                  image: AssetImage(
-                "images/Untitled-1.png",
-              )),
+              Myimage(),
               Container(
                 height: 100,
                 width: 400,
@@ -62,6 +60,7 @@ class MyPortfolioApp extends StatelessWidget {
                 child: Text(
                   "I am Okongwu Chukwunonso, a flutter enthusiast and developer.",
                   textDirection: TextDirection.ltr,
+                  textAlign: TextAlign.center,
                   style: TextStyle(
                     color: Colors.deepPurple,
                     fontSize: 15,
@@ -71,28 +70,69 @@ class MyPortfolioApp extends StatelessWidget {
               ),
               Expanded(
                 child: Container(
-                  height: 350,
-                  width: 400,
-                  alignment: Alignment.topCenter,
-                  margin: EdgeInsets.fromLTRB(0, 5, 0, 0),
-                  decoration: BoxDecoration(
-                    color: Colors.deepPurple,
-                  ),
-                  child: Text(
-                    "Skills",
-                    textDirection: TextDirection.ltr,
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 15,
-                      fontWeight: FontWeight.bold,
+                    height: 350,
+                    width: 400,
+                    alignment: Alignment.topCenter,
+                    margin: EdgeInsets.fromLTRB(0, 5, 0, 0),
+                    decoration: BoxDecoration(
+                      color: Colors.deepPurple,
+                    ),
+                    child: Expanded(
+                      child: Column(
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Text(
+                              "Skills set",
+                              textDirection: TextDirection.ltr,
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 15,
+                                fontWeight: FontWeight.bold,
+                              )
+                            ),
+                          ),
+                          Expanded(
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                children: [
+                                  Expanded(
+                                    child: Container(
+                                      child: Image(
+                                        image: AssetImage("images/PS2.png"),
+                                      ),
+                                    ),
+                                  ),
+                                  Expanded(
+                                    child: Container(
+                                          //width: 5.0,
+                                            //color: Colors.blueAccent,
+                                          child: Image(
+                                            image: AssetImage("images/PP2.png"),
+                                            width: 100,
+                                            height: 100,
+                                          ),
+                                        ),
+                                  ),
+                                  Expanded(
+                                        child: Image(
+                                          image: AssetImage("images/AA2.png"),
+                                        fit: BoxFit.fill,
+                                          width: 100,
+                                          height: 100,
+                                        ),
+                                  ),
+                                ],
+                              ),
+                          ),
+                        ],
+                      ),
                     ),
                   ),
-                ),
               ),
-              Row(
-                children: [
-                  //Image(image: AssetImage("images/Untitled-1.png"))
-                ],
+              Container(
+                  //Aftereffectimage()
+                //child: Image(image: Image.asset("images/AA.png")),
               )
             ],
           ),
@@ -114,6 +154,19 @@ class Myimage extends StatelessWidget {
     );
     return Container(
       child: image,
+    );
+  }
+}
+
+class Aftereffectimage extends StatelessWidget {
+  // This widget is the root of your application.
+  @override
+  Widget build(BuildContext context) {
+    AssetImage assetImage = AssetImage("images/AA.png");
+    Image image = Image(
+      image: assetImage,
+      width: 50,
+      height: 50
     );
   }
 }
